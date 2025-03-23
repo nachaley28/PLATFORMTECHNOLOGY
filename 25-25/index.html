@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Tracker</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #2d3e50;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        #map {
+            height: 500px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+        .form-group input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+        }
+        .form-group button {
+            padding: 10px 15px;
+            background-color: #36a420;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #2b8234;
+        }
+        h2 {
+            color: #333;
+        }
+        #locationlist {
+            list-style-type: none;
+            padding: 0;
+        }
+        #locationlist li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #2d3e50;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Location Tracker</h1>
+    </header>
+
+    <div class="container">
+        <div class="form-group">
+            <input type="text" id="locationInput" placeholder="Enter location" />
+            <button id="addlocationbuttton" onclick="addLocation()">Add Location</button>
+        </div>
+        
+        <div id="map"></div>
+
+        <h2>Location List:</h2>
+        <ul id="locationlist"></ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Location Tracker. All rights reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        const addlocationbuttton = document.getElementById('addlocationbuttton');
+        const locationInput = document.getElementById('locationInput');
+        const locationlist = document.getElementById('locationlist');
+
+        let locations = [];
+        let map;
+
+        function addLocation() {
+            const location = locationInput.value.trim();
+            if (location !== "") {
+                locations.push(location);
+                locationInput.value = '';
+                updatelocationlist();
+                updateMap(location);
+            }
+        }
+
+        function updatelocationlist() {
+            locationlist.innerHTML = '';
+            locations.forEach((location) => {
+                const li = document.createElement('li');
+                li.textContent = location;
+                locationlist.appendChild(li);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            map = L.map('map').setView([0, 0], 2);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+        });
+
+        function updateMap(location) {
+            const coordinates = getCoordinatesForLocation(location);
+            if (coordinates) {
+                map.setView(coordinates, 6);
+                L.marker(coordinates).addTo(map).bindPopup(location);
+            } else {
+                alert('Location not found or coordinates not available');
+            }
+        }
+
+        function getCoordinatesForLocation(location) {
+            const locationCoordinates = {
+                "philippines": [13.42, 122.56],
+                "taiwan": [23.6978, 120.9605],
+                "manila": [14.5995, 120.9842],
+                "iloilo": [10.7202, 122.5621],
+                "cebu": [10.3157, 123.8854],
+                "davao": [7.1907, 125.4553],
+                "cagayan de oro": [8.4542, 124.6319],
+                "zamboanga": [6.9105, 122.0738],
+                "butuan": [8.9492, 125.5436],
+                "surigao": [9.7843, 125.4889],
+                "malaybalay": [8.1502, 125.1275],
+                "valencia": [7.9064, 125.0946],
+                "bukidnon": [8.1660, 124.8444],
+                "camiguin": [9.1733, 124.7297],
+            }
+            return locationCoordinates[location.toLowerCase()];
+        }
+    </script>
+</body>
+</html>
