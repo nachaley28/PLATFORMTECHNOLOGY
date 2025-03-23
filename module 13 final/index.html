@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--SOLILAP, OSMHAR LENOUX S.-->
+    <title>Traffic Survey Form</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Traffic Survey Form</h1>
+    <form id="surveyForm">
+        <fieldset>
+            <legend>Question 1: How often do you travel through the Aganan Pavia flyover?</legend>
+            <label> Daily <input type="radio" name="q1" value="daily"> </label>
+            <label> Weekly <input type="radio" name="q1" value="weekly"> </label>
+            <label> Monthly <input type="radio" name="q1" value="monthly"> </label>
+            <label> Rarely <input type="radio" name="q1" value="rarely"> </label>
+        </fieldset>
+        <fieldset>
+            <legend>Question 2: What time of day do you usually encounter traffic at the flyover?</legend>
+            <label> Morning <input type="radio" name="q2" value="morning"> </label>
+            <label> Afternoon <input type="radio" name="q2" value="afternoon"> </label>
+            <label> Evening <input type="radio" name="q2" value="evening"> </label>
+            <label> Night <input type="radio" name="q2" value="night"> </label>
+        </fieldset>
+        <fieldset>
+            <legend>Question 3: How severe do you find the traffic congestion?</legend>
+            <label> Very severe <input type="radio" name="q3" value="very_severe"> </label>
+            <label> Severe <input type="radio" name="q3" value="severe"> </label>
+            <label> Moderate <input type="radio" name="q3" value="moderate"> </label>
+            <label> Light <input type="radio" name="q3" value="light"> </label>
+        </fieldset>
+        <fieldset>
+            <legend>Question 4: How long does it typically take you to pass through the flyover?</legend>
+            <label> Less than 5 minutes <input type="radio" name="q4" value="less_5"> </label>
+            <label> 5-10 minutes <input type="radio" name="q4" value="5_10"> </label>
+            <label> 10-20 minutes <input type="radio" name="q4" value="10_20"> </label>
+            <label> More than 20 minutes <input type="radio" name="q4" value="more_20"> </label>
+        </fieldset>
+        <fieldset>
+            <legend>Question 5: What is your main mode of transportation when using the flyover?</legend>
+            <label> Car <input type="radio" name="q5" value="car"> </label>
+            <label> Motorcycle <input type="radio" name="q5" value="motorcycle"> </label>
+            <label> Public transport <input type="radio" name="q5" value="public_transport"> </label>
+            <label> Bicycle <input type="radio" name="q5" value="bicycle"> </label>
+            <label> Walking <input type="radio" name="q5" value="walking"> </label>
+        </fieldset>
+        <fieldset>
+            <legend>Question 6: Have you noticed any improvements in traffic flow recently?</legend>
+            <label> Yes <input type="radio" name="q6" value="yes"> </label>
+            <label> No <input type="radio" name="q6" value="no"> </label>
+        </fieldset>
+        <fieldset>
+            <legend>Question 7: How do you rate the signage and signals at the flyover?</legend>
+            <label> Excellent <input type="radio" name="q7" value="excellent"> </label>
+            <label> Good <input type="radio" name="q7" value="good"> </label>
+            <label> Fair <input type="radio" name="q7" value="fair"> </label>
+            <label> Poor <input type="radio" name="q7" value="poor"> </label>
+        </fieldset>
+        <fieldset>
+            <legend>Question 8: Do you think the flyover has helped reduce travel time?</legend>
+            <label> Yes <input type="radio" name="q8" value="yes"> </label>
+            <label> No <input type="radio" name="q8" value="no"> </label>
+        </fieldset>
+        <fieldset>
+            <legend>Question 9: What improvements would you suggest for the flyover?</legend>
+            <label> Better lighting <input type="radio" name="q9" value="lighting"> </label>
+            <label> More lanes <input type="radio" name="q9" value="lanes"> </label>
+            <label> Improved road surface <input type="radio" name="q9" value="surface"> </label>
+            <label> Other <input type="radio" name="q9" value="other"> </label>
+        </fieldset>
+        <fieldset>
+            <legend>Question 10: How likely are you to recommend using the flyover to others?</legend>
+            <label> 1 <input type="radio" name="q10" value="1"> </label>
+            <label> 2 <input type="radio" name="q10" value="2"> </label>
+            <label> 3 <input type="radio" name="q10" value="3"> </label>
+            <label> 4 <input type="radio" name="q10" value="4"> </label>
+            <label> 5 <input type="radio" name="q10" value="5"> </label>
+        </fieldset>
+        <input type="submit" value="Submit">
+    </form>
+    <div id="results" style="display: none;">
+        <h2>Survey Results</h2>
+        <p><strong>Question 1:</strong> <span id="result1"></span></p>
+        <p><strong>Question 2:</strong> <span id="result2"></span></p>
+        <p><strong>Question 3:</strong> <span id="result3"></span></p>
+        <p><strong>Question 4:</strong> <span id="result4"></span></p>
+        <p><strong>Question 5:</strong> <span id="result5"></span></p>
+        <p><strong>Question 6:</strong> <span id="result6"></span></p>
+        <p><strong>Question 7:</strong> <span id="result7"></span></p>
+        <p><strong>Question 8:</strong> <span id="result8"></span></p>
+        <p><strong>Question 9:</strong> <span id="result9"></span></p>
+        <p><strong>Question 10:</strong> <span id="result10"></span></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
