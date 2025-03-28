@@ -1,8 +1,8 @@
 // Sample friend data
 const friendsData = [
-    { name: 'Florenz' },
-    { name: 'Valerie' },
-    { name: 'L.A.' },
+    { name: 'NATALIE' },
+    { name: 'MARYMAE' },
+    { name: 'LOYYD' },
     // Add more friends here...
 ];
 
